@@ -1,0 +1,15 @@
+{
+  "urls":{
+    "имя ссылки":{
+      "path":"/",
+      "controller":"NewsController"
+    }
+  },
+  "urls":{
+    "имя ссылки":{
+      "path":"/teamgasu",
+      "controller":"TeamgasuController"
+    }
+  }
+}
+

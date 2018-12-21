@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><? echo $title;?></title>
-    <link rel="stylesheet" href="/public_html/css/newsstyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/newsstyle.css">
 </head>
 <body>
 
@@ -11,7 +11,7 @@
 
     <div class="row-container hbackground">
         <div class="flex-1 btransparent">
-            <img src="../../public_html/pics/shlspb.png" class="logo padding">
+            <img src="public_html/pics/shlspb.png" class="logo padding">
         </div>
         <div class="column-container flex-5">
             <div class="flex-container2 flex-1">
@@ -55,5 +55,6 @@
 
 </div>
 
+<script src="/js/achievments.js"></script>
 </body>
 </html>

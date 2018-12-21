@@ -26,3 +26,11 @@ class TeamgasuController extends Controller
     }
 
 }
+
+//game
+//team
+//player
+//news
+//tournament
+//account
+//search
