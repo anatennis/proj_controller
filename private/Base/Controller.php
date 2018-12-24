@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Anastasia
- * Date: 16.12.2018
- * Time: 14:00
- */
+
+namespace Anastasia\Project\Base;
 
 class Controller
 {

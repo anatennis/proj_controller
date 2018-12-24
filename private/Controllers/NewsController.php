@@ -1,10 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Anastasia
- * Date: 16.12.2018
- * Time: 14:01
- */
+
+namespace Anastasia\Project\Controllers;
+use Anastasia\Project\Base\Controller;
+use Anastasia\Project\Models\NewsModel;
 
 class NewsController extends Controller
 {

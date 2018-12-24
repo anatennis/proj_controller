@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Anastasia
- * Date: 20.12.2018
- * Time: 21:16
- */
 
 namespace Anastasia\Project\Base;
 

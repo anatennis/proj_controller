@@ -1,10 +1,11 @@
 <?php
+require __DIR__.'/../vendor/autoload.php';
 
-require_once __DIR__.'/../private/Models/NewsModel.php';
-require_once __DIR__.'/../private/Models/TeamgasuModel.php';
-require_once __DIR__.'/../private/Base/Controller.php';
-require_once __DIR__.'/../private/Controllers/NewsController.php';
-require_once __DIR__.'/../private/Controllers/TeamgasuController.php';
+//require_once __DIR__.'/../private/Models/NewsModel.php';
+//require_once __DIR__.'/../private/Models/TeamgasuModel.php';
+//require_once __DIR__.'/../private/Base/Controller.php';
+//require_once __DIR__.'/../private/Controllers/NewsController.php';
+//require_once __DIR__.'/../private/Controllers/TeamgasuController.php';
 
 echo $_SERVER['REQUEST_URI'];
 
@@ -25,7 +26,7 @@ function run() {
     }
 
     $action=strtolower($controller).'Action';
-    $controller = ucfirst(strtolower($controller)).'Controller';
+    $controller = 'Anastasia\Project\Controllers\\'.ucfirst(strtolower($controller)).'Controller';
     // var_dump("Controller: $controller");
 
 

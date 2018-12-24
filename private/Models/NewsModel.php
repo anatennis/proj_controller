@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Anastasia
- * Date: 16.12.2018
- * Time: 14:54
- */
+namespace Anastasia\Project\Models;
 
 class NewsModel
 {

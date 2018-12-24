@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Anastasia
- * Date: 16.12.2018
- * Time: 15:56
- */
+namespace Anastasia\Project\Models;
 
 class TeamgasuModel
 {

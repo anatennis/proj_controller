@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Anastasia
- * Date: 16.12.2018
- * Time: 15:56
- */
+namespace Anastasia\Project\Controllers;
+use Anastasia\Project\Base\Controller;
+use Anastasia\Project\Models\TeamgasuModel;
 
 class TeamgasuController extends Controller
 {
