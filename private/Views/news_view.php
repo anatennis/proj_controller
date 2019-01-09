@@ -9,7 +9,7 @@
         <? foreach ($locnews as $onenews) :?>
             <div class="column-container flex-2 width padding">
                 <div class="flex-2">
-                    <img src="/public_html/pics/zwRyd80RWfU.jpg" alt="img" class="n-img hiddenimg">
+                    <img src="/pics/zwRyd80RWfU.jpg" alt="img" class="n-img hiddenimg">
                 </div>
                 <div class="flex-1 padding">
                     <h3 class="shl1"><?php echo $onenews['title'];?></h3>

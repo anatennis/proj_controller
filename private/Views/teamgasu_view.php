@@ -14,9 +14,9 @@
         <? foreach ($goalies as $goalkeeper) :?>
             <div class="flex-1 padding5">
                 <a href="player.php?id=<?php echo $goalkeeper['id'];?>">
-                    <img src="/lesson4/pics/<? echo $goalkeeper['img1'];?>" alt="img" class="plimg hiddenimg">
-                    <img src="/lesson4/pics/<? echo $goalkeeper['img2'];?>" class="visibleimg plimgxs">
-                    <p><? echo $goalkeeper['name'];?></p>
+                    <img src="/pics/<? echo $goalkeeper['img1'];?>" alt="img" class="plimg hiddenimg">
+                    <img src="/pics/<? echo $goalkeeper['img2'];?>" class="visibleimg plimgxs">
+                    <!--<p><?/* echo $goalkeeper['name'];*/?></p>-->
                 </a>
             </div>
 

@@ -19,7 +19,9 @@ class TeamgasuController extends Controller
             'title'=>$title,
             'goalies'=>$goalies
         ];
-        parent::generateResponse($view, $data);
+        /*parent::generateResponse($view, $data);*/
+        $response = parent::generateResponse($view, $data);
+        return $response;
     }
 
 }

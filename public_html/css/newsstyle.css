@@ -4,33 +4,12 @@
 
 * {  box-sizing: border-box; }
 
-body {
-    font-size: 20px;
-    /*background-image: url(../pics/bg.jpg);*/
-    background-repeat: repeat;
-    background-color: lavender;
-}
-
-.logo {
-    width: 150px;
-    height: 150px;
-    border: none;
-    background: transparent;
-    margin-left: 20%;
-    margin-top: 5%;
-}
 
 .n-img {
     width: 250px;
     height: 180px;
 }
 
-.shl {
-    text-align: left;
-    font-family: "Arial Narrow";
-    text-transform: uppercase;
-    color: white;
-}
 
 .shl1 {
     text-align: left;
@@ -40,72 +19,6 @@ body {
 }
 
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    border-top: 1px solid lightsteelblue;
-    width: 100%;
-    /*height: 50px;*/
-    position: relative;
-    text-align: center;
-    font-weight: 200;
-    font-variant: all-petite-caps;
-
-    background-color: transparent;
-}
-
-.menu > li {
-    display: inline-block;
-    position: relative;
-}
-
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-}
-
-.menu li:hover .submenu {
-    display: block;
-    background-color: rgba(230, 230, 250, 0.7);
-    padding: 2%;
-    border-radius: 10px;
-    width: 160%;
-    /*font-size: x-large;*/
-    margin-left: -30%;
-
-}
-
-.menu li:hover .submenu > li {
-    font-size: 0.7em;
-    border: none;
-
-    color: #2572aa;
-    width: 120%;
-
-}
-
-li {
-    float: left;
-    text-align: center;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    width: 100px;
-    height: 35px;
-    font-family: "Arial Narrow";
-    /*margin: 3px;*/
-    position: relative;
-    list-style: none;
-}
-
-
-li:hover {
-    background-color: transparent;
-    /*box-shadow: 1px 1px 1px azure;*/
-    border-bottom: 2px solid white;
-}
 
 a {
     text-decoration: none;

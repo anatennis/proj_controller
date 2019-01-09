@@ -1,14 +1,24 @@
 {
   "urls":{
-    "имя ссылки":{
+    "news":{
       "path":"/",
-      "controller":"NewsController"
-    }
-  },
-  "urls":{
-    "имя ссылки":{
+      "controller":"Anastasia\\Project\\Controllers\\NewsController::NewsAction",
+      "method": "GET"
+    },
+    "teams":{
       "path":"/teamgasu",
-      "controller":"TeamgasuController"
+      "controller":"Anastasia\\Project\\Controllers\\TeamgasuController::TeamgasuAction",
+      "method": "GET"
+    },
+    "games":{
+      "path":"/game",
+      "controller":"Anastasia\\Project\\Controllers\\GameController::GameAction",
+      "method": "GET"
+    },
+    "tournaments":{
+      "path":"/tournament",
+      "controller":"Anastasia\\Project\\Controllers\\TournamentController::TournamentAction",
+      "method": "GET"
     }
   }
 }

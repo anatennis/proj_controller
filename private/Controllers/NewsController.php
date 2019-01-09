@@ -23,6 +23,8 @@ class NewsController extends Controller
             'intnews'=>$intnews,
             'locnews'=>$locnews
         ];
-        parent::generateResponse($view, $data);
+        /*parent::generateResponse($view, $data);*/
+        $response = parent::generateResponse($view, $data);
+        return $response;
     }
 }

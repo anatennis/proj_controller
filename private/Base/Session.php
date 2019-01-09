@@ -2,7 +2,6 @@
 
 namespace Anastasia\Project\Base;
 
-
 class Session
 {
     protected function LoadSession()

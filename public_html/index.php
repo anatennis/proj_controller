@@ -1,14 +1,42 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
 
+$request = new \Anastasia\Project\Base\Request();
+$file = __DIR__.'/../config.json';
+$app = new \Anastasia\Project\Base\Application($file);
+$response = $app->handleRequest($request);  // обрабатываем запрос
+$response->send();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //require_once __DIR__.'/../private/Models/NewsModel.php';
 //require_once __DIR__.'/../private/Models/TeamgasuModel.php';
 //require_once __DIR__.'/../private/Base/Controller.php';
 //require_once __DIR__.'/../private/Controllers/NewsController.php';
 //require_once __DIR__.'/../private/Controllers/TeamgasuController.php';
 
-echo $_SERVER['REQUEST_URI'];
-
+/*
 function run() {
     $controller = "News";
     $action = "news";
@@ -45,5 +73,5 @@ function run() {
     }
 
     $controller->$action($get);
-}
-run();
+}*/
+//run();
