@@ -35,7 +35,7 @@
                 <p class="teamname">Team1</p>
             </div>
             <div class="flex-1 btransparent res_common">
-                <p class="result"><a href="/game">2:7</a></p>
+                <p class="result"><a href="/game/1">2:7</a></p>
                 <p class="gamedate">12.02.18</p>
             </div>
             <div class="flex-1 btransparent">

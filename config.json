@@ -1,4 +1,10 @@
 {
+  "db" : {
+    "server":"localhost",
+    "dbname":"project",
+    "user":"anastasia",
+    "pwd":"password"
+  },
   "urls":{
     "news":{
       "path":"/",
@@ -11,7 +17,7 @@
       "method": "GET"
     },
     "games":{
-      "path":"/game",
+      "path":"/game/{id:\\d+}",
       "controller":"Anastasia\\Project\\Controllers\\GameController::GameAction",
       "method": "GET"
     },

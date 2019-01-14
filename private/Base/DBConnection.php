@@ -4,56 +4,60 @@ namespace Anastasia\Project\Base;
 
 class DBConnection
 {
-    private $connection;
+    public $connection;
+    protected $server = 'localhost';
+    protected $db_name = 'project';
+    protected $username = 'anastasia',
+    $pwd = 'password';
 
-    public function __construct()
+    public function __construct( )
     {
-        $this->connection = $this->connect();
+        $this->connection = $this->connect($this->server, $this->db_name, $this->username, $this->pwd);
     }
-
-    public function connect($server, $db_name, $username, $pwd, array $opt=[]) {
-
+    private function connect(
+        $server, $db_name,
+        $username, $pwd, array $opt=[]
+    )
+    {
+        $connection = null;
         try {
-            $connection = new \PDO("mysql:host=$server;dbname=$db_name",
-            $username, $pwd, $opt);
-        } catch (\PDOException $exception) {
-            //обработка ошибки
+            $connection =  new \PDO("mysql:host=$server;dbname=$db_name",
+                $username, $pwd, $opt);
+        } catch (\PDOException $exception){
+            // обработка ошибки
         }
-
         return $connection;
     }
-
-    public function exec($sql_string) {
-        //
-       /* if (!$this->connection->exec($sql_string)) {
-            return "Exc error";
-        }*/
+    // неподготовленный запрос
+    public function exec($sql_string){
+//        if(!$this->connection->exec($sql_string)){
+//            return "Exec Error";
+//        }
         return $this->connection->exec($sql_string);
     }
-
-    //неподготовленный завпрос
-    public function queryAll($sql_string) {
+    // неподготовленный запрос
+    public function queryAll($sql_string){
         $statement = $this->connection->query($sql_string);
-        $data = $statement->fetchAll(\PDO::FETCH_ASSOC);
-        var_dump($data);
+        if (!$statement) {
+            return false; // либо сообщение
+        }
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
-
-    public function query($sql_string) {
+    // неподготовленный запрос
+    public function query($sql_string){
         $statement = $this->connection->query($sql_string);
-        $data = $statement->fetch(\PDO::FETCH_ASSOC);
-        var_dump($data);
+        if (!$statement) {
+            return false; // либо сообщение
+        }
+        return $statement->fetch(\PDO::FETCH_ASSOC);
     }
-
-    //подготовленный запрос
-    /*public function execute($sql_string, $params, $all=true) {
+    // подготовленный запрос
+    public function execute($sql_string, $params, $all=true){
         $statement = $this->connection->prepare($sql_string);
         $statement->execute($params);
-    if (!$all)
-    {return $statement->fetchAll(\PDO::FETCH_ASSOC);}
-    `
-    return  $statement->fetch(\PDO::FETCH_ASSOC);
-    }*/
-
-
-
+        if (!$all) {
+            return $statement->fetch(\PDO::FETCH_ASSOC);
+        }
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
