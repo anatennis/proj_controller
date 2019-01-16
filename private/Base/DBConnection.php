@@ -4,16 +4,33 @@ namespace Anastasia\Project\Base;
 
 class DBConnection
 {
-    public $connection;
-    protected $server = 'localhost';
+    private $connection;
+    /*protected $server = 'localhost';
     protected $db_name = 'project';
     protected $username = 'anastasia',
-    $pwd = 'password';
+    $pwd = 'password';*/
+    /*public function __construct( )
+        {
+            $this->connection = $this->connect($this->server, $this->db_name, $this->username, $this->pwd);
+        }*/
+    private static $dbconnection;
 
-    public function __construct( )
+    private function __construct( )
     {
-        $this->connection = $this->connect($this->server, $this->db_name, $this->username, $this->pwd);
+        //$this->connection = $this->connect($this->server, $this->db_name, $this->username, $this->pwd);
     }
+
+    public static function getDBConnection() {
+        if (!self::$dbconnection) {
+            self::$dbconnection = new self();
+        }
+        return self::$dbconnection;
+    }
+
+    public function setConnection($settings) {
+        $this->connection = $this->connect($settings['server'], $settings['dbname'], $settings['user'], $settings['pwd']);
+    }
+
     private function connect(
         $server, $db_name,
         $username, $pwd, array $opt=[]

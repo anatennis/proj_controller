@@ -23,6 +23,10 @@ class Application
         return $config = json_decode(file_get_contents($configPath), true);
     }
     public function handleRequest(Request $request){
+        $dbconf =  $this->config['db'];
+        $db = DBConnection::getDBConnection();
+        $db->setConnection($this->config['db']);
+//через singleton (приватным контсруктор, два метода - один статитческий для создания объекта и другой для задания настроек конфигураций)
         $router = new Router($this->config['urls']);
         $routeInfo = $router->dispatch($request->getMethod(), $request->getUri());
         $controllerData = Controller::create($routeInfo);

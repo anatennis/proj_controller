@@ -13,10 +13,11 @@ class NewsModel
 
 
     public function showNews(){
-        $db = new DBConnection();
-        $sql = 'SELECT Name FROM News';
-        $news = $db->exec($sql);
-       return $news;
+        $db = DBConnection::getDBConnection();
+        $sql = 'SELECT * FROM News';
+        $news = $db->query($sql);
+        $data = $news->fetchAll(PDO::FETCH_OBJ);
+       return $data;
     }
 
     public function getIntNews() {
