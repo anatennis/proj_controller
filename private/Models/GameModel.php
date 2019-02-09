@@ -7,100 +7,113 @@
  */
 
 namespace Anastasia\Project\Models;
-
+use Anastasia\Project\Base\DBConnection;
 
 class GameModel
 {
-    public  function getGame() {
-        $game = [
-            'result'=>'2:7',
-            'date'=>'12.12.18'
-        ];
+    const USER_ADDED = "USER_ADDED";
+    const USER_EXISTS = "USER_EXISTS";
+    const LOGIN_ERROR = "LOGIN_ERROR";
+    const PWD_ERROR = "PWD_ERROR";
+    const USER_AUTH = "USER_AUTH";
+    const DB_ERROR = "DB_ERROR";
+    private $db;
 
-        return $game;
+    public function __construct()
+    {
+        $this->db = DBConnection::getDBConnection();
     }
-    public function getTeams() {
-        $teams = [
-                'team1' => [
-                'name' => 'A',
-                'rshots' => 93.5,
-                'shots'=> 34,
-                'fminutes' => 12,
-                'logo' => 'shlspb.png'
-                ],
-            'team2' => [
-                'name' => 'B',
-                'rshots' => 92.5,
-                'shots'=> 42,
-                'fminutes' => 10,
-                'logo' => 'shlspb.png'
-            ]
-        ];
 
+
+    public  function getGame($game_id) {
+        $sql = "SELECT * FROM Game WHERE id=:id";
+        $params = [
+            'id'=> $game_id
+        ];
+        return $this->db->execute($sql, $params);
+    }
+
+    public  function getGames() {
+        $sql = "SELECT * FROM Game WHERE id_user=:id_user";
+        $params = [
+            'id_user'=> $_SESSION['login_id']
+        ];
+        $games = $this->db->execute($sql, $params);
+        return $games;
+    }
+
+    public  function getGamesAdmin() {
+        $sql = "SELECT * FROM Game";
+        return $this->db->queryAll($sql);
+    }
+
+
+    public function getTeam($team) {
+        $sql = "SELECT * FROM Team WHERE name=:name";
+        $params = [
+            'name'=> $team
+        ];
+        $team = $this->db->execute($sql, $params, false);
+        return $team;
+    }
+
+    public function getTeams() {
+        $sql = "SELECT * FROM Team";
+        $statement = $this->db->queryAll($sql);
+        $teams = $statement;
         return $teams;
     }
 
-    public function getGoalsTeam1() {
-        $team1goals = [
-            [
-                'number'=>'1',
-                'date'=>'12:33',
-                'goal'=>'Петров А',
-                'assist1'=>'Сидоров С',
-                'assist2'=>'Кадрин К'
-            ],
-            [
-                'number'=>'2',
-                'date'=>'16:33',
-                'goal'=>'Сирин В',
-                'assist1'=>'Рамкин Р',
-                'powplay'=>'+1'
-            ],
-            [
-                'number'=>'3',
-                'date'=>'42:33',
-                'goal'=>'Петров А',
-            ],
+    public function getPlayers($team_id) {
+        $sql = "SELECT * FROM Player WHERE team_id=:team_id";
+        $params = [
+            'team_id'=> $team_id
         ];
+        $team = $this->db->execute($sql, $params);
+        return $team;
+    }
 
-        return $team1goals;
+    public function getUsers() {
+        $sql = "SELECT * FROM User";
+        $statement = $this->db->queryAll($sql);
+        $users = $statement;
+
+        return $users;
+    }
+
+    public function addGame($gameData) {
+        $sql = "SELECT id FROM User WHERE name=:name";
+        $params = [
+            'team1'=>$gameData['user']
+        ];
+        $user_id = $this->db->execute($sql, $params);
+
+        $sql = "INSERT INTO Game (team1, team2, id_user)
+              VALUES (:team1, :team2, :id_user)";
+        $params = [
+            'team1'=>$gameData['team1'],
+            'team2'=>$gameData['team2'],
+            'id_user'=>$user_id
+        ];
+        /*if($this->db->execute($sql, $params) === false) {
+            return self::DB_ERROR;
+        }*/
+        return $this->db->execute($sql, $params);
+    }
+
+    public function getGoalsTeam1() {
+        return;
     }
 
     public function getGoalsTeam2() {
-        $team2goals = [
-            [
-                'number'=>'1',
-                'date'=>'28:33',
-                'goal'=>'Рифин П',
-                'assist1'=>'Тунин Р'
-            ]
-        ];
-
-        return $team2goals;
+        return;
     }
 
     public function getFallsTeam1() {
-        $team1falls = [
-            [
-                'name'=>'Рифин П',
-                'date'=>'22:33',
-                'dur'=>'2 мин',
-                'typeoff'=>'ЗД-КЛ'
-            ]
-        ];
-
-        return $team1falls;
+        return;
     }
 
     public function getFallsTeam2() {
-        $team2falls = [
-            [
-                'name'=>'Пилин Р',
-                'date'=>'32:33',
-                'dur'=>'2 мин',
-                'typeoff'=>'БЛОК'
-            ]
-        ];
-        return $team2falls;
+        return;
     }
 }

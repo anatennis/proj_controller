@@ -35,6 +35,27 @@ class Controller
         );
         return $response;
     }
+    protected function generateAjaxResponseAuth($view, array $data, $text)
+    {
+        $response = new Response();
+        $response->setBody(
+            $text
+        );
+        $response->setBody(
+            $this->render($view, $data, 'template_view.php')
+        );
+        return $response;
+    }
+
+    protected function generateAjaxResponse($text)
+    {
+        $response = new Response();
+        $response->setBody(
+            $text
+        );
+
+        return $response;
+    }
     public function render($view, array $data,
                            $template='template_view.php')
     {

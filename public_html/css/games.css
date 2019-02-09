@@ -1,0 +1,36 @@
+.header_games {
+    background: cornflowerblue;
+    color: white;
+    text-align: center;
+    display: block;
+    height: 40px;
+    align-items: center;
+}
+
+.game {
+    margin-top: 10px;
+    width: 30%;
+    display: inline-block;
+    background: #7f8084;
+    color: white;
+    height: 100px;
+    padding-top: 30px;
+    font-size: 40px;
+}
+
+.game > a {
+    color: white;
+    background: none;
+    text-decoration: none;
+}
+
+.add_game {
+    background: #999999;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+.add_game:hover {
+    background: lightgrey;
+}

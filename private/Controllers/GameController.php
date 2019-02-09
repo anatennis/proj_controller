@@ -17,31 +17,110 @@ class GameController extends Controller
     public function __construct()
     {
         $this->gameModel = new GameModel();
+
     }
     public function GameAction() {
-        $title = 'Матч '.$this->gameModel->getTeams()['team1']['name'].' - '.$this->gameModel->getTeams()['team2']['name'];
-        $view = 'game_view.php';
-        $teamsinfo = $this->gameModel->getTeams();
-        $gameinfo = $this->gameModel->getGame();
-        $team1goals = $this->gameModel->getGoalsTeam1();
-        $team2goals = $this->gameModel->getGoalsTeam2();
-        $team1falls = $this->gameModel->getFallsTeam1();
-        $team2falls = $this->gameModel->getFallsTeam2();
+        $title = 'Матч Live';
+        $view = 'gamered_view.php';
+        //$teamsinfo = $this->gameModel->getTeams();
+        $game_id = explode("/", $_SERVER['REQUEST_URI'])[2];
+        $gameinfo = $this->gameModel->getGame($game_id);
+        $team1 = $this->gameModel->getTeam($gameinfo[0]['team1']);
+        $team2 = $this->gameModel->getTeam($gameinfo[0]['team2']);
+        $players1 = $this->gameModel->getPlayers($team1['id']);
+        $players2 = $this->gameModel->getPlayers($team2['id']);
         $data = [
             'title'=>$title,
-            'game'=>$gameinfo,
-            'team1'=>$teamsinfo['team1'],
-            'team2'=>$teamsinfo['team2'],
-            'team1goals'=>$team1goals,
+            //'game'=>$gameinfo,
+            'team1'=>$team1,
+            'team2'=>$team2,
+            'players1'=>$players1,
+            'players2'=>$players2,
+           /* 'team1goals'=>$team1goals,
             'team2goals'=>$team2goals,
             'team1falls'=>$team1falls,
-            'team2falls'=>$team2falls
+            'team2falls'=>$team2falls*/
             /*'intnews'=>$intnews,
             'locnews'=>$locnews*/
+        ];
+        /*parent::generateResponse($view, $data);*/
+        if (!isset($_SESSION['login'])) {
+            return parent::generateResponse('auth_view.php',
+                ['title'=>'Войти', 'warn'=>true]);
+        }
+        $response = parent::generateResponse($view, $data);
+        return $response;
+    }
+
+    public function GamesAction() {
+        $title = 'Доступные игры';
+        $view = 'games_view.php';
+        if ($_SESSION['login']=='admin') {
+            $games = $this->gameModel->getGamesAdmin();
+        } else {
+            $games = $this->gameModel->getGames();
+        }
+        $data = [
+            'title'=>$title,
+            'games'=>$games,
+        ];
+        if (!isset($_SESSION['login'])) {
+            return parent::generateResponse('auth_view.php',
+                ['title'=>'Войти', 'warn'=>true]);
+        }
+        /*parent::generateResponse($view, $data);*/
+        $response = parent::generateResponse($view, $data);
+        return $response;
+    }
+
+    public function AddGameAction($request) {
+        $postData = $request->post();
+        $title = 'Доступные игры';
+        $view = 'games_view.php';
+        $games = $this->gameModel->addGame($postData);
+        if ($_SESSION['login']=='admin') {
+            $games = $this->gameModel->getGamesAdmin();
+        } else {
+            $games = $this->gameModel->getGames();
+        }
+        $data = [
+            'title'=>$title,
+            'games'=>$games
         ];
         /*parent::generateResponse($view, $data);*/
         $response = parent::generateResponse($view, $data);
         return $response;
     }
+
+    public function AddAction() {
+        $title = 'Добавить матч';
+        $view = 'add_game.php';
+        $teams = $this->gameModel->getTeams();
+        $users = $this->gameModel->getUsers();
+        //$games = $this->gameModel->getGames();
+        $data = [
+            'title'=>$title,
+            'teams'=>$teams,
+            'users'=>$users
+        ];
+        if (!isset($_SESSION['login'])) {
+            return parent::generateResponse('auth_view.php',
+                ['title'=>'Войти', 'warn'=>true]);
+        }
+        /*parent::generateResponse($view, $data);*/
+        $response = parent::generateResponse($view, $data);
+        return $response;
+    }
+
+    public function showExampleAction() {
+        $title = 'Игра Пример';
+        $view = 'game_view.php';
+        $data = [
+            'title'=>$title,
+        ];
+        $response = parent::generateResponse($view, $data);
+        return $response;
+    }
+
 
 }

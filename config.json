@@ -1,29 +1,74 @@
 {
   "db" : {
     "server":"localhost",
-    "dbname":"project",
-    "user":"anastasia",
-    "pwd":"password"
+    "dbname":"project_new",
+    "user":"root",
+    "pwd":""
   },
   "urls":{
-    "news":{
+    "main":{
       "path":"/",
-      "controller":"Anastasia\\Project\\Controllers\\NewsController::NewsAction",
+      "controller":"Anastasia\\Project\\Controllers\\AccountController::accountAction",
       "method": "GET"
     },
-    "teams":{
-      "path":"/teamgasu",
-      "controller":"Anastasia\\Project\\Controllers\\TeamgasuController::TeamgasuAction",
+    "auth":{
+      "path":"/account",
+      "controller":"Anastasia\\Project\\Controllers\\AccountController::authAction",
+      "method": "POST"
+    },
+    "auth2":{
+      "path":"/showaccount",
+      "controller":"Anastasia\\Project\\Controllers\\AccountController::authAction2",
       "method": "GET"
     },
-    "games":{
+    "reg":{
+      "path":"/register",
+      "controller":"Anastasia\\Project\\Controllers\\AccountController::registrationAction",
+      "method": "POST"
+    },
+    "reg2":{
+      "path":"/showaccountr",
+      "controller":"Anastasia\\Project\\Controllers\\AccountController::registrationAction2",
+      "method": "GET"
+    },
+    "index":{
+      "path":"/index",
+      "controller":"Anastasia\\Project\\Controllers\\IndexController::indexAction",
+      "method": "GET"
+    },
+    "game":{
       "path":"/game/{id:\\d+}",
       "controller":"Anastasia\\Project\\Controllers\\GameController::GameAction",
       "method": "GET"
     },
-    "tournaments":{
-      "path":"/tournament",
-      "controller":"Anastasia\\Project\\Controllers\\TournamentController::TournamentAction",
+    "games":{
+      "path":"/games",
+      "controller":"Anastasia\\Project\\Controllers\\GameController::GamesAction",
+      "method": "GET"
+    },
+    "game_add":{
+      "path":"/add_game",
+      "controller":"Anastasia\\Project\\Controllers\\GameController::AddAction",
+      "method": "GET"
+    },
+    "game_add_f":{
+      "path":"/add_gameact",
+      "controller":"Anastasia\\Project\\Controllers\\GameController::AddGameAction",
+      "method": "POST"
+    },
+    "get_team":{
+      "path":"/team/getAll",
+      "controller":"Anastasia\\Project\\Controllers\\TeamController::getAllAction",
+      "method": "POST"
+    },
+    "game_example":{
+      "path":"/gameexample",
+      "controller":"Anastasia\\Project\\Controllers\\GameController::showExampleAction",
+      "method": "GET"
+    },
+    "logout":{
+      "path":"/logout",
+      "controller":"Anastasia\\Project\\Controllers\\AccountController::logoutAction",
       "method": "GET"
     }
   }

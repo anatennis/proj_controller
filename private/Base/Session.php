@@ -4,31 +4,33 @@ namespace Anastasia\Project\Base;
 
 class Session
 {
-    protected function LoadSession()
+    private $session;
+    public function __construct()
     {
+        $this->session = $_SESSION;
+    }
+    public function start(){
         session_start();
     }
-
-    public function get($name)
-    {
-        if (!isset($_SESSION[$name])) {
-            var_dump("$name не найден");
+    public function setData($key, $value){ // null null
+        if (!$key or !$value) {
+            // выбросить исключение
+            var_dump('передайте корректные $key и $value');
             return false;
         }
-        return $_SESSION[$name];
+        $this->session[$key] = $value;
+//        return true;
     }
-
-    public function set($name, $value)
-    {
-        if (!$name or !$value) {
-            var_dump("uncorrect $value or $name");
+    public function getData($key){
+        if(!isset($this->session[$key])) {
+            // выбросить исключение
+            var_dump('$key не найден');
             return false;
         }
-        $_SESSION[$name] = $value;
+        return $this->session[$key];
     }
-
-    public function destroySession($name) {
-        session_destroy($name);
+    public function close(){
+        session_destroy();
+        unset($this->session);
     }
-
 }

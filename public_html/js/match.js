@@ -1,66 +1,36 @@
-function changeTime() {
-    let m = document.getElementById('minute').innerHTML;
-    let s = document.getElementById('second').innerHTML;
-
-    if (!(s<1 && m<1)) {
-        if (s<1) { m-=1; s=59; }
-        else { s-=1; }
-        if (m < 10) m = "0" + m;
-        if (s < 10) s = "0" + s;
-        /*htmlTime.innerHTML = m + ":" + s;*/
-        document.getElementById('minute').innerHTML = m;
-        document.getElementById('second').innerHTML = s;
-    } else {
-        clearInterval(matchTimer);
-        document.getElementById('minute').innerHTML = "Матч";
-        document.getElementById('second').innerHTML = "окончен";
-    }
-}
-
-// var matchTimer = setTimeout(changeTime,1000);
-
-let players = createPlArr();//  данные для вывода в таблицу
-function createPlArr() {
-    let arr = [];
-    for (let i = 0; i < 28; i++){
-        arr.push(
-            {
-                id: i,
-                name: "Какое-то имя",
-                role: "Амплуа",
-                phone: "№",
-                position: "К"
-            }
-        )
-    }
-    return arr;
-}
-
-//console.log(users);
-
-function createTable (usersData, tableID) {
-    let tab = document.getElementById (tableID);
-    tab.classList.add('tab');
-
-    for (i = 0; i < usersData.length; i++)
-    {
-        trow =  tab.insertRow ();
-        for (key in usersData[i]) {
-            let cell = trow.insertCell ();
-            cell.innerHTML = usersData[i][key];
+function startTimer() {
+    var min = document.getElementById("minute").innerHTML;
+    var sec = document.getElementById("second").innerHTML;
+    var m = min;
+    var s = sec;
+    if (s == 0) {
+        if (m == 0) {
+            alert("Время вышло");
+            window.location.reload();
+            return;
         }
+        m--;
+        if (m < 10) m = "0" + m;
+        s = 59;
     }
-
+    else s--;
+    if (s < 10) s = "0" + s;
+    document.getElementById("minute").innerHTML = m;
+    document.getElementById("second").innerHTML = s;
 }
 
-tableID1 = 'team1';
-tableID2 = 'team2';
-createTable(players, tableID1);
-createTable(players, tableID2);
-
-
-let g = 2;
-let p = 8;
+var but;
+var startstop = document.getElementById("startstop");
+startstop.addEventListener('click', StopStart);
+function StopStart() {
+    if (startstop.value == "Стоп") {
+        startstop.value = "Старт";
+        clearInterval(but);
+    } else {
+        startstop.value = "Стоп";
+        but = setInterval(startTimer, 1000);
+    }
+}
 
 function AddStat(s1, s2, rs1, rs2, fm1, fm2) {
     let shots1 = Math.floor(s1*100/(s1+s2));
@@ -98,18 +68,8 @@ function AddStat(s1, s2, rs1, rs2, fm1, fm2) {
         total: fm1+fm2
 
     });
-/*    let stat1 = document.getElementById("shots");
-    let stat2 = document.getElementById("refshots");
-    let stat3 = document.getElementById("fminutes");
-    console.log(stat1);
-    let statg = document.createElement('p');
-    statg.innerHTML = 'Голы '+ g;
-    let statp = document.createElement('p');
-    statp.innerHTML = 'Передачи '+ p;
-    statg.classList.add("sts");
-    statp.classList.add("sts");
-    stat1.appendChild(statg);
-    stat2.appendChild(statp);*/
 }
 
 AddStat(23, 12, 95, 96, 12, 10);
+
+

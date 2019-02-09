@@ -5,6 +5,7 @@ namespace Anastasia\Project\Base;
 class DBConnection
 {
     private $connection;
+    private static $dbconnection;
     /*protected $server = 'localhost';
     protected $db_name = 'project';
     protected $username = 'anastasia',
@@ -13,7 +14,7 @@ class DBConnection
         {
             $this->connection = $this->connect($this->server, $this->db_name, $this->username, $this->pwd);
         }*/
-    private static $dbconnection;
+
 
     private function __construct( )
     {

@@ -5,7 +5,8 @@
     "license": "MIT",
     "minimum-stability": "dev",
     "require": {
-        "nikic/fast-route": "^2.0@dev"
+        "nikic/fast-route": "^2.0@dev",
+        "cboden/ratchet": "^0.4.1"
     },
     "autoload": {
         "psr-4": {
