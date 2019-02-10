@@ -93,7 +93,7 @@ class GameModel
         $params = [
             'team1'=>$gameData['team1'],
             'team2'=>$gameData['team2'],
-            'id_user'=>$user_id
+            'id_user'=>1
         ];
         /*if($this->db->execute($sql, $params) === false) {
             return self::DB_ERROR;

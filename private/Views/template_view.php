@@ -38,8 +38,8 @@
 </div>
 
 <script src="/js/matchred.js"></script>
-<script src="/js/enter_account_form.js"></script>
-<script src="/js/sendForm.js"></script>
+<!--<script src="/js/enter_account_form.js"></script>
+<script src="/js/sendForm.js"></script>-->
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="/js/modalreg.js"></script>

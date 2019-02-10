@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
     <link rel="stylesheet" href="css/mainmenu.css">
     <link rel="stylesheet" href="css/modal.css">
 
@@ -17,7 +16,8 @@
     <li><a class="menuvar" href="/games">Доступные матчи</a></li>
     <?php if ($_SESSION['login']=='admin') { ?>
     <li><a class="menuvar" href="/add_game">Добавить матч</a></li>
-    <li><a class="menuvar reg" href="#"><button class="regbutton">Зарегистрировать пользователя</button></a></li>
+    <li><a class="menuvar reg" href="#"><button class="regbutton">Зарегистрировать судью</button></a></li>
+    <li><a class="menuvar" href="/users">Судьи</a></li>
     <?php } ;?>
     <li><a class="menuvar" href="/contacts">Контакты</a></li>
     <li><a class="menuvar" href="/logout">Выход</a></li>
@@ -47,7 +47,8 @@
                 <input type="text" name="email" id="email" placeholder="Почта"  required/>
                 <input type="text" name="login" id="login" placeholder="Логин"  required/>
                 <input type="password" name="password" id="password" placeholder="Пароль" required/>
-                <input type="password" name="password" id="password" placeholder="Повторите пароль" required/>
+                <div id="check_p"></div>
+                <input type="password" name="password" id="password_c" onkeyup="valid(event)" placeholder="Повторите пароль" required/>
                 <div>
                     <input type="submit" value="Зарегистрировать нового пользователя" id="reg-button"/>
                 </div>
@@ -74,6 +75,7 @@
 <script src="/js/enter_account_form.js"></script>
 <script src="/js/sendForm.js"></script>
 <script src="/js/modalreg.js"></script>
+<script src="/js/check_reg.js"></script>
 
 </body>
 </html>

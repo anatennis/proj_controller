@@ -5,8 +5,9 @@ function startTimer() {
     var s = sec;
     if (s == 0) {
         if (m == 0) {
-            alert("Время вышло");
-            window.location.reload();
+            document.getElementById("minute").innerHTML = "Матч ";
+            document.getElementById("second").innerHTML = "окончен";
+            clearInterval(but);
             return;
         }
         m--;
@@ -57,19 +58,17 @@ function AddStat(s1, s2, rs1, rs2, fm1, fm2) {
         total: rs1+rs2
 
     });
-    new Chartist.Pie('#chart3', {
-        series: [fm1, fm2]
-    }, {
-        startAngle: 0,
-        donut: true,
-        donutWidth: 20,
-        donutSolid: true,
-        showLabel: false,
-        total: fm1+fm2
-
-    });
 }
 
-AddStat(23, 12, 95, 96, 12, 10);
+AddStat(23, 12, 95, 96);
+function setProc(s1, s2) {
+    let sp1 = document.getElementById("sp1");
+    let sp2 = document.getElementById("sp2");
 
+}
 
+function setStatics() {
+    let s1 = Number.parseInt(document.getElementById("s1").innerHTML);
+    let s2 = Number.parseInt(document.getElementById("s2").innerHTML);
+    setProc(s1, s2);
+}

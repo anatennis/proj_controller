@@ -2,25 +2,30 @@
 /**
  * Created by PhpStorm.
  * User: Anastasia
- * Date: 07.02.2019
- * Time: 19:05
+ * Date: 09.02.2019
+ * Time: 21:19
  */
 
 namespace Anastasia\Project\Models;
 use Anastasia\Project\Base\DBConnection;
 
 
-class TeamModel
+class CommonModel
 {
     private $db;
-
     public function __construct()
     {
         $this->db = DBConnection::getDBConnection();
     }
 
-    public  function getPlayers() {
-        $sql = "SELECT * FROM Player";
+    public function getUsers() {
+        $sql = "SELECT * FROM User";
+        $players = $this->db->queryAll($sql);
+        return $players;
+    }
+
+    public function getGames() {
+        $sql = "SELECT * FROM Game";
         $players = $this->db->queryAll($sql);
         return $players;
     }

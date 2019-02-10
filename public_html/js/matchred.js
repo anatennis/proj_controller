@@ -1,4 +1,4 @@
-    console.log('sendteam');
+
     function sendTeam() {
 
         let form_data = new FormData();
@@ -11,18 +11,17 @@
 
         xhr.onload = function (oEvent) {
             if (xhr.status == 200) {
-                console.log("xhr response", xhr.responseText);
+                //console.log("xhr response", xhr.responseText);
                 responseHandler(xhr.responseText);
             }
         };
     }
 
     sendTeam();
-    let team_data = {};
+    let team_data11 = {};
     function responseHandler(response) {
-        team_data = JSON.parse(response);
-        console.log(team_data);
-
+        team_data11 = JSON.parse(response);
+       // console.log(team_data);
     }
 
     var countOfFieldsteam1 = 0; // Текущее число полей
@@ -68,8 +67,7 @@
         let min = document.getElementById("minute").innerHTML;
         let sec = document.getElementById("second").innerHTML;
 
-
-        let options = formOptions(1);
+        let options = formOptions(document.getElementById("t1").innerText);
         let str = "<nobr>" +
             "<div class=\"numofgoal\">#" +countOfFieldsteam1+ "</div>"+
             "<select size=\"1\" name=\"type[" + curFieldNameIdteam1 + "]\" style=\"width:17%;\" id=\"team1goal"+ curFieldNameIdteam1 +"\">"+options
@@ -109,7 +107,7 @@
         let min = document.getElementById("minute").innerHTML;
         let sec = document.getElementById("second").innerHTML;
 
-        let options = formOptions(1);
+        let options = formOptions(document.getElementById("t2").innerText);
         let str = "<nobr>" +
             "<div class=\"numofgoal\">#" +countOfFieldsteam2+ "</div>"+
             "<select size=\"1\" name=\"type[" + curFieldNameIdteam2 + "]\" style=\"width:17%;\" id=\"team2goal"+ curFieldNameIdteam2 +"\">"+options
@@ -175,7 +173,7 @@
         let min = document.getElementById("minute").innerHTML;
         let sec = document.getElementById("second").innerHTML;
 
-        let options = formOptions(1);
+        let options = formOptions(document.getElementById("t1").innerText);
         div.innerHTML = "<nobr>" +
             "<div class=\"numofgoal\">#" +countoffallsteam1+ "</div>"+
             "<select size=\"1\" name=\"type[" + curFallNameIdteam1 + "]\" style=\"width:20%;\" id=\"team1fall"+ curFallNameIdteam1 +"\">" +
@@ -204,7 +202,7 @@
         let min = document.getElementById("minute").innerHTML;
         let sec = document.getElementById("second").innerHTML;
 
-        let options = formOptions(1);
+        let options = formOptions(document.getElementById("t2").innerHTML);
         div.innerHTML = "<nobr>" +
             "<div class=\"numofgoal\">#" +countoffallsteam2+ "</div>"+
             "<select size=\"1\" name=\"type[" + curFallNameIdteam2 + "]\" style=\"width:20%;\" id=\"team2fall"+ curFallNameIdteam2 +"\">" +
@@ -223,15 +221,15 @@
     }
 
     function formOptions(id_team) {
-        let teams = team_data;
+        let teams = team_data11;
+        let id = Number.parseInt(id_team);
         let str = '';
         for (let i=0; i<teams.length; i++) {
-            if (teams[i]['team_id'] == id_team) {
+            if (teams[i]['team_id'] == id) {
                 //console.log('formed options',teams[i]['name']);
                 str+="<option value=\"text\">"+teams[i]['name']+"</option>"+"+";
             }
         }
-        console.log('formed options fin',str);
         return str;
     }
 

@@ -29,4 +29,6 @@
 <div class="game"><a href="/game/3">Политех - ЛТУ</a> </div>
 <div class="game"><a href="/game/1">Гасу - Лту</a> </div>
 <div class="game"><a href="/game/2">Гасу - Политех</a> </div>-->
+<?php if ($_SESSION['login'] == 'admin') { ;?>
 <div class="game add_game"><a href="/add_game">+</a> </div>
+<?php } ;?>

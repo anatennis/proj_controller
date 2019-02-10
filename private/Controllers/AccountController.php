@@ -58,6 +58,7 @@ class AccountController extends Controller
         $answer = $this->accountModel->addUser($postData);
         return parent::generateAjaxResponse($answer);
     }
+
     public function registrationAction2(){
         $view = 'account_view.php';
         $title =  "Личный кабинет";

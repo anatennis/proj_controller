@@ -1,6 +1,5 @@
 <!--для редактирования матча, нет контроллера, доделать-->
 
-
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,13 +13,13 @@
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script></head>
 
 
-<form name="game" method="post" action="">
+<form name="game" id="gameform"> <!--method="post" action=""-->
     <div class="flex-1 lnbackground column-container marginlarge">
         <div class="hbackground h3back backlastgames">
             <h3 class="shl padding gamename">Матч <?php echo $team1['name'];?> -  <?php echo $team2['name'];?> </h3>
             <div class="clock">
-                <div id="minute">60</div>
-                <div id="second">00</div>
+                <div id="minute">00</div>
+                <div id="second">03</div>
             </div>
             <div class="startbut"><input type="button" value="Старт" id="startstop"></div>  <!--/*!!!!!!!!!!!!!!!!!!!!!!!*/-->
         </div>
@@ -132,22 +131,13 @@
             </div>
         </div>
         <div class="flex-1 row-container darkgrayback">
-            <div id="fminutes" class="flex-1 row-container stat">
-                <div class="flex-2">
-                    <div class="ct-series-a ct-slice-donut" id="chart3" style="display: block"></div></div>
-                <div class="flex-1 statnames">
-                    <p>Штрафные минуты</p>
-                    <p>Team 1 10</p>
-                    <p>Team 2 12</p>
-                </div>
-            </div>
             <div id='shots' class="flex-1 stat row-container padding">
                 <div class="flex-2">
                     <div class="ct-series-a ct-slice-donut" id="chart1" style="display: block"></div></div>
                 <div class="flex-1 statnames">
                     <p>Броски</p>
-                    <p>Team 1 34</p>
-                    <p>Team 2 45</p>
+                    <p><?php echo $team1['name'];?><input style="width: 30px" type="number" min="0" step="1" id="s1" value="0"></p>
+                    <p><?php echo $team2['name'];?><input style="width: 30px" type="number" min="0" step="1" id="s2" value="0"></p>
                 </div>
             </div>
             <div id='refshots' class="flex-1 row-container stat">
@@ -155,8 +145,8 @@
                     <div class="ct-series-a ct-slice-donut" id="chart2" style="display: block"></div></div>
                 <div class="flex-1 statnames">
                     <p>Отраженные броски</p>
-                    <p>Team 1 92.4 %</p>
-                    <p>Team 2 96.1 %</p>
+                    <p><?php echo $team1['name'];?> <div id="sp1"></div> %</p>
+                    <p><?php echo $team2['name'];?> <div id="sp2"></div> %</p>
                 </div>
             </div>
 
@@ -165,7 +155,9 @@
 
     </div>
 
-    <div><a href="/games">Назад</a>    </div>
+    <div><a href="/games"><input type="button" value="Назад"></a></div>
+    <div style="display: none" id="t1"><?php echo $team1['id'];?></div>
+    <div style="display: none" id="t2"><?php echo $team2['id'];?></div>
 </form>
 
 

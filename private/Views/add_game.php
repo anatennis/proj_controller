@@ -41,6 +41,8 @@
 
 
 <script src="/js/modalreg.js"></script>
+<script src="/js/enter_account_form.js"></script>
+<script src="/js/sendForm.js"></script>
 
 </body>
 </html>

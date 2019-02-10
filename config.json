@@ -66,6 +66,16 @@
       "controller":"Anastasia\\Project\\Controllers\\GameController::showExampleAction",
       "method": "GET"
     },
+    "users":{
+      "path":"/users",
+      "controller":"Anastasia\\Project\\Controllers\\CommonController::usersAction",
+      "method": "GET"
+    },
+    "contacts":{
+      "path":"/contacts",
+      "controller":"Anastasia\\Project\\Controllers\\CommonController::contactsAction",
+      "method": "GET"
+    },
     "logout":{
       "path":"/logout",
       "controller":"Anastasia\\Project\\Controllers\\AccountController::logoutAction",

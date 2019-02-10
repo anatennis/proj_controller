@@ -23,11 +23,18 @@
 
     function responseHandler(response) {
         if (response === "USER_ADDED") {
-            window.location.href = "/showaccountr";
+            window.location.href = "/users";
             console.log('reg');
         } else if (response === "USER_AUTH"){
             window.location.href = "/showaccount";
-        } else {
+        } else if (response === "USER_EXISTS"){
+            console.log('user exists');
+            window.location.href = "/index";
+        } else if (response === "PWD_ERROR"){
+            console.log('user exists');
+            window.location.href = "/";
+        }
+        else {
             window.location.href = "/games";
             //console.log("вывод ошибки данных");
         }

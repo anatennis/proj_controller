@@ -82,7 +82,8 @@ socket.onmessage = function (event) {
 
 };
 
-let form = document.forms.game;
+//let form = document.forms.game;
+let form = document.getElementById("gameform");
 form.addEventListener('submit', addResult);
 
 function addResult(event) {

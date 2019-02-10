@@ -67,7 +67,7 @@
     </div>
 </div>
 
-<form name="game_user">
+<form name="game">
     <div class="flex-1 lnbackground column-container marginlarge">
         <div class="hbackground h3back backlastgames">
             <h3 class="shl padding gamename">Матч Команда 1 - Команда 2</h3>

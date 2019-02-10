@@ -5,7 +5,7 @@
  * Date: 29.01.2019
  * Time: 19:11
  */
-namespace Socket;
+namespace Anastasia\Project\Base;;
 
 class Socket implements \Ratchet\MessageComponentInterface
 {
