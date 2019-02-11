@@ -46,6 +46,11 @@
       "controller":"Anastasia\\Project\\Controllers\\GameController::GamesAction",
       "method": "GET"
     },
+    "gamesafterrec":{
+      "path":"/gamesaftrec",
+      "controller":"Anastasia\\Project\\Controllers\\GameController::RecResultAction",
+      "method": "POST"
+    },
     "game_add":{
       "path":"/add_game",
       "controller":"Anastasia\\Project\\Controllers\\GameController::AddAction",
@@ -74,6 +79,16 @@
     "contacts":{
       "path":"/contacts",
       "controller":"Anastasia\\Project\\Controllers\\CommonController::contactsAction",
+      "method": "GET"
+    },
+    "mesacc":{
+      "path":"/messageaccept",
+      "controller":"Anastasia\\Project\\Controllers\\CommonController::messageAction",
+      "method": "POST"
+    },
+    "messages":{
+      "path":"/messages",
+      "controller":"Anastasia\\Project\\Controllers\\CommonController::messagesAction",
       "method": "GET"
     },
     "logout":{

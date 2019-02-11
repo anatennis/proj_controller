@@ -82,18 +82,19 @@ class GameModel
     }
 
     public function addGame($gameData) {
-        $sql = "SELECT id FROM User WHERE name=:name";
-        $params = [
-            'team1'=>$gameData['user']
-        ];
-        $user_id = $this->db->execute($sql, $params);
+//        $sql = "SELECT id FROM User WHERE name=:name";
+//        $params = [
+//            'team1'=>$gameData['user']
+//        ];
+//        $user_id = $this->db->execute($sql, $params);
+        $user_id = explode('.',$gameData['user'])[0];
 
         $sql = "INSERT INTO Game (team1, team2, id_user)
               VALUES (:team1, :team2, :id_user)";
         $params = [
             'team1'=>$gameData['team1'],
             'team2'=>$gameData['team2'],
-            'id_user'=>1
+            'id_user'=>$user_id
         ];
         /*if($this->db->execute($sql, $params) === false) {
             return self::DB_ERROR;
@@ -101,19 +102,15 @@ class GameModel
         return $this->db->execute($sql, $params);
     }
 
-    public function getGoalsTeam1() {
-        return;
+    public function addGameResult($resultdata) {
+        $sql = "UPDATE Game SET (result=:result)
+               WHERE (id=:id)";
+        $result = $resultdata['res1'].':'.$resultdata['res2'];
+        $params = [
+            'result'=> $result,
+            'id'=>$resultdata['id']
+        ];
+        return $this->db->execute($sql, $params);
     }
 
-    public function getGoalsTeam2() {
-        return;
-    }
-
-    public function getFallsTeam1() {
-        return;
-    }
-
-    public function getFallsTeam2() {
-        return;
-    }
 }

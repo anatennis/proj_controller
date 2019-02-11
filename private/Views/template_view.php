@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
 
 </head>
@@ -19,12 +19,12 @@
 <?php include_once $view ;?>
 
 
-<div class="flex-1 lnbackground">
+<div class="flex-1 lnbackground" style="0 left: 0; bottom: 0; width: 100%">
     <div class="bottom flex-1 row-container">
         <p>
-            <a href="">Privacy Policy</a> |
-            <a href="">Terms of Use</a> |
-            <a href="">Contact</a><br>
+            <a href="#">Соглашение использования</a> |
+            <a href="/contacts">Контакты</a>|
+            <a href="/">Главная</a><br>
             <span>© 2018 SHL SPb, all rights reserved.</span>
         </p>
         <div class="socialNet">
@@ -37,7 +37,7 @@
     </div>
 </div>
 
-<script src="/js/matchred.js"></script>
+<!--<script src="/js/matchred.js"></script>-->
 <!--<script src="/js/enter_account_form.js"></script>
 <script src="/js/sendForm.js"></script>-->
 

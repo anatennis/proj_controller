@@ -1,6 +1,4 @@
-<?php if ($warn) { ?>
-<div><p> Эта страница доступна только авторизованным пользователя'</p></div>
-<?php } ?>
+
 
 <svg id="svg-source" height="0" version="1.1"  xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute">
@@ -56,6 +54,12 @@
     </div>
     <div class="clear"></div>
     <form action="account" method="post">
+        <?php if ($warn) { ?>
+            <div><p style="color: #c80000"> Эта страница доступна только авторизованным пользователям</p></div>
+        <?php } ?>
+        <?php if ($warnpwd) { ?>
+            <div><p style="color: #c80000"> Неправильный логин или пароль</p></div>
+        <?php } ?>
         <div>
             <label class="user" for="text">
                 <svg viewBox="0 0 32 32">

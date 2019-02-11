@@ -1,6 +1,6 @@
 'use strict';
 
-let socket = new WebSocket("ws:\\localhost:8080");
+let socket = new WebSocket("ws:\\localhost:8090");
 
 socket.onopen = function () {
     console.log('Connection is stabled');
@@ -149,6 +149,7 @@ function addResult(event) {
         'fallsdurteam1': fallsdurteam1,
         'fallsdurteam2': fallsdurteam2
     };
+
     socket.send(JSON.stringify(data));
     return;
 }

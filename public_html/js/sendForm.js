@@ -31,12 +31,10 @@
             console.log('user exists');
             window.location.href = "/index";
         } else if (response === "PWD_ERROR"){
-            console.log('user exists');
             window.location.href = "/";
         }
         else {
             window.location.href = "/games";
-            //console.log("вывод ошибки данных");
         }
     }
 

@@ -1,0 +1,17 @@
+#name, #login, #password,
+#password, #email,
+#password_c, #reg-button {
+    width: 70%;
+}
+
+#modalreg {
+    background-color: white;
+    width: 80%;
+}
+
+
+.modalreg input:required:valid, .contact_form textarea:required:valid {
+    background: #fff no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}

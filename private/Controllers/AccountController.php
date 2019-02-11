@@ -23,8 +23,10 @@ class AccountController extends Controller
         $view = 'auth_view.php';
         $title =  "Аккаунт";
         $data = [
-            'title' => $title
+            'title' => $title,
+            'warnpwd'=>$_SESSION['warnpwd']
         ];
+        $_SESSION['warnpwd'] = false;
         return parent::generateResponse($view, $data);
     }
 
@@ -35,6 +37,9 @@ class AccountController extends Controller
         if ($answer == 'USER_AUTH') {
             $_SESSION['login'] = $postData['login'];
             $_SESSION['login_id'] =$this->accountModel->getId()['id'];
+            $_SESSION['warnpwd'] = false;
+        } else {
+            $_SESSION['warnpwd'] = true;
         }
         return parent::generateAjaxResponse($answer);
     }

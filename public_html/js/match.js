@@ -4,17 +4,18 @@ function startTimer() {
     var m = min;
     var s = sec;
     if (s == 0) {
-        if (m == 0) {
+        if (m == 60) {
             document.getElementById("minute").innerHTML = "Матч ";
             document.getElementById("second").innerHTML = "окончен";
+            startstop.style.display = "none";
             clearInterval(but);
             return;
         }
-        m--;
+        //m++;
         if (m < 10) m = "0" + m;
-        s = 59;
+        s = 1;
     }
-    else s--;
+    else if (s==59) {s = 0; m++ } else {s++; }
     if (s < 10) s = "0" + s;
     document.getElementById("minute").innerHTML = m;
     document.getElementById("second").innerHTML = s;
@@ -27,13 +28,13 @@ function StopStart() {
     if (startstop.value == "Стоп") {
         startstop.value = "Старт";
         clearInterval(but);
-    } else {
+    } else if (startstop.value == "Старт") {
         startstop.value = "Стоп";
         but = setInterval(startTimer, 1000);
     }
 }
 
-function AddStat(s1, s2, rs1, rs2, fm1, fm2) {
+function AddStat(s1, s2, rs1, rs2) {
     let shots1 = Math.floor(s1*100/(s1+s2));
     let shots2 = Math.floor(s2*100/(s1+s2));
     new Chartist.Pie('#chart1', {
@@ -61,14 +62,3 @@ function AddStat(s1, s2, rs1, rs2, fm1, fm2) {
 }
 
 AddStat(23, 12, 95, 96);
-function setProc(s1, s2) {
-    let sp1 = document.getElementById("sp1");
-    let sp2 = document.getElementById("sp2");
-
-}
-
-function setStatics() {
-    let s1 = Number.parseInt(document.getElementById("s1").innerHTML);
-    let s2 = Number.parseInt(document.getElementById("s2").innerHTML);
-    setProc(s1, s2);
-}

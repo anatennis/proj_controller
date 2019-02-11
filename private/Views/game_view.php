@@ -2,13 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/flex.css">
-    <link rel="stylesheet" href="css/flex.css">
-    <link rel="stylesheet" href="css/newsstyle.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/match.css">
-    <link rel="stylesheet" href="css/matchred.css">
+    <link rel="stylesheet" href="/css/flex.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/match.css">
+    <link rel="stylesheet" href="/css/matchred.css">
     <!--<link rel="stylesheet" href="css/tourns.css">-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Marmelad" >
     <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
@@ -20,7 +17,7 @@
 <div class="container column-container">
     <div class="row-container hbackground">
         <div class="flex-1 btransparent">
-            <img src="shlspb.png" class="logo padding">
+            <img src="/pics/shlspb.png" class="logo padding">
         </div>
         <div class="column-container flex-5">
             <div class="flex-container2 flex-1">
@@ -70,33 +67,21 @@
 <form name="game">
     <div class="flex-1 lnbackground column-container marginlarge">
         <div class="hbackground h3back backlastgames">
-            <h3 class="shl padding gamename">Матч Команда 1 - Команда 2</h3>
-            <div class="clock">
-                <div id="hour">01</div>
-                <div id="minute">00</div>
-                <div id="second">00</div>
-                <!--<span id="my_timer">01:00:00</span>-->
-            </div>
-            <div class="startbut"><input type="button" value="Старт" id="timer"></div>
-            <!--
-
-            -->
+            <h3 class="shl padding gamename">Матч Лисы - Волки ЛТУ LIVE</h3>
         </div>
 
         <div class="flex-1 row-container marginlarge">
             <div class="flex-1 btransparent">
-                <img src="shlspb.png" class="teamlogo1 padding">
-                <p class="teamname">Team1</p>
+                <img src="/pics/gasu.png" class="teamlogo1 padding">
+                <p class="teamname">Лисы</p>
             </div>
             <div class="flex-1 btransparent res_common">
-                <div class="result">
-                    <div id="result1">0</div>:<div id="result2">0</div>
-                </div>
+                    <div class="result"><div id="result1">0</div> : <div id="result2">0</div> </div>
                 <p class="gamedate">12.02.18</p>
             </div>
             <div class="flex-1 btransparent">
-                <img src="shlspb.png" class="teamlogo1 padding">
-                <p class="teamname">Team2</p>
+                <img src="/pics/ftu.png" class="teamlogo1 padding">
+                <p class="teamname">Волки ЛТУ</p>
             </div>
         </div>
 
@@ -129,7 +114,7 @@
             <h3 class="shl padding gamename">Составы команд</h3>
         </div>
         <div class="flex-1 row-container marginlarge">
-            <div class="flex-1 padding">Команда 1
+            <div class="flex-1 padding">Лисы
                 <table id="team1" border="1">
                     <thead>
                     <tr>
@@ -137,12 +122,19 @@
                         <th data-type="string">Имя</th>
                         <th data-type="string">Амплуа</th>
                         <th data-type="string">Игровой номер</th>
-                        <th data-type="string">Метка</th>
                     </tr>
+                    <?php foreach ($players1 as $player) { $i++; ?>
+                        <tr>
+                            <th data-type="number"><?php echo $i;?></th>
+                            <th data-type="string"><?php echo $player['name'];?></th>
+                            <th data-type="string"><?php echo $player['role'];?></th>
+                            <th data-type="string"><?php echo $player['number'];?></th>
+                        </tr>
+                    <?php } ;?>
                     </thead>
                 </table>
             </div>
-            <div class="flex-1 padding">Team 2
+            <div class="flex-1 padding">Волки ЛТУ
                 <table id="team2" border="1">
                     <thead>
                     <tr>
@@ -150,8 +142,15 @@
                         <th data-type="string">Имя</th>
                         <th data-type="string">Амплуа</th>
                         <th data-type="string">Игровой номер</th>
-                        <th data-type="string">Метка</th>
                     </tr>
+                    <?php foreach ($players1 as $player) { $i++; ?>
+                        <tr>
+                            <th data-type="number"><?php echo $i;?></th>
+                            <th data-type="string"><?php echo $player['name'];?></th>
+                            <th data-type="string"><?php echo $player['role'];?></th>
+                            <th data-type="string"><?php echo $player['number'];?></th>
+                        </tr>
+                    <?php } ;?>
                     </thead>
                 </table>
             </div>
@@ -162,8 +161,8 @@
                     <div class="ct-series-a ct-slice-donut" id="chart3" style="display: block"></div></div>
                 <div class="flex-1 statnames">
                     <p>Штрафные минуты</p>
-                    <p>Team 1 10</p>
-                    <p>Team 2 12</p>
+                    <p>Лисы 10</p>
+                    <p>Волки ЛТУ 2 12</p>
                 </div>
             </div>
             <div id='shots' class="flex-1 stat row-container padding">
@@ -171,8 +170,8 @@
                     <div class="ct-series-a ct-slice-donut" id="chart1" style="display: block"></div></div>
                 <div class="flex-1 statnames">
                     <p>Броски</p>
-                    <p>Team 1 34</p>
-                    <p>Team 2 45</p>
+                    <p>Лисы 34</p>
+                    <p>Волки 45</p>
                 </div>
             </div>
             <div id='refshots' class="flex-1 row-container stat">
@@ -180,8 +179,8 @@
                     <div class="ct-series-a ct-slice-donut" id="chart2" style="display: block"></div></div>
                 <div class="flex-1 statnames">
                     <p>Отраженные броски</p>
-                    <p>Team 1 92.4 %</p>
-                    <p>Team 2 96.1 %</p>
+                    <p>Лисы 92.4 %</p>
+                    <p>Волки 2 96.1 %</p>
                 </div>
             </div>
 
@@ -193,7 +192,7 @@
 
 </form>
 
-<script src="js/match.js"></script>
-<script src="js/match_socket.js"></script>
+<script src="/js/match.js"></script>
+<script src="/js/match_socket.js"></script>
 </body>
 </html>

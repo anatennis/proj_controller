@@ -12,6 +12,7 @@ class Socket implements \Ratchet\MessageComponentInterface
 
     protected $clients;
 
+
     public function __construct()
     {
         $this->clients = new \SplObjectStorage();
@@ -62,10 +63,9 @@ class Socket implements \Ratchet\MessageComponentInterface
     {
         foreach ($this->clients as $client) {
             if ($client !== $from) {
-
             $client->send($msg);
 
-        }
+            }
         }
     }
 }

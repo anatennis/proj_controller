@@ -1,6 +1,6 @@
 <head>
-    <link rel="stylesheet" href="css/mainmenu.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/mainmenu.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/flex.css">
     <link rel="stylesheet" href="/css/match.css">
     <link rel="stylesheet" href="/css/users.css">

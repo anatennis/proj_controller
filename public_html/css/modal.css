@@ -17,12 +17,13 @@ h1 {
 }
 
 button, .regbutton {
-    /*background-color: #0D52E9;*/
+    background-color: #0D52E9;
     position: relative;
-    color: #fff;
+    color: white;
     border: none;
     /*padding: 1.25em 2em;
     font-size: 0.75em;*/
+    border-radius: 5px;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;

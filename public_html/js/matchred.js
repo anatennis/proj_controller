@@ -64,6 +64,10 @@
 
         let res = document.getElementById('res1');
         res.innerHTML = countOfFieldsteam1;
+
+        let res1 = document.getElementById('res11');
+        res1.innerHTML = countOfFieldsteam1;
+
         let min = document.getElementById("minute").innerHTML;
         let sec = document.getElementById("second").innerHTML;
 
@@ -179,9 +183,26 @@
             "<select size=\"1\" name=\"type[" + curFallNameIdteam1 + "]\" style=\"width:20%;\" id=\"team1fall"+ curFallNameIdteam1 +"\">" +
             options + "</select>" +
             "<select size=\"1\" name=\"type[" + curFallNameIdteam1 + "]\" style=\"width:20%;\" id=\"team1falltype"+ curFallNameIdteam1 +"\">" +
-            "<option value=\"text\">--тип удаления--</option>" + "</select>" +
+            "<option value=\"text\">ДИСЦ</option>" +
+            "<option value=\"text\">ПОДН</option>" +
+            "<option value=\"text\">ЗД-КЛ</option>" +
+            "<option value=\"text\">ВС-КЛ</option>" +
+            "<option value=\"text\">ПОДС</option>" +
+            "<option value=\"text\">КЛ-УД</option>" +
+            "<option value=\"text\">УД-КЛ</option>" +
+            "<option value=\"text\">АТ-СЗ</option>" +
+            "<option value=\"text\">УД-Н</option>" +
+            "<option value=\"text\">ГРУБ</option>" +
+            "<option value=\"text\">БОРТ</option>" +
+            "</select>" +
             "<select size=\"1\" name=\"type[" + curFallNameIdteam1 + "]\" style=\"width:20%;\" id=\"team1falldur"+ curFallNameIdteam1 +"\">" +
-            "<option value=\"text\">--длит-ть--</option>" + "</select>" +
+            "<option value=\"text\">2 МИН</option>" +
+            "<option value=\"text\">5 МИН</option>" +
+            "<option value=\"text\">10 МИН</option>" +
+            "<option value=\"text\">20 МИН</option>" +
+            "<option value=\"text\">2+2 МИН</option>" +
+            "<option value=\"text\">5+20 МИН</option>" +
+            "</select>" +
             "<div class=\"timeofgoal\" id=\"team1falltime"+ curFallNameIdteam1 +"\">"+min+":"+sec+"</div>"+
             "<a style=\"color:red;\" onclick=\"return deleteFallteam1(this)\" href=\"#\">[—]</a> " +
             "<a style=\"color:green;\" onclick=\"return addFallteam1()\" href=\"#\">[+]</a></nobr>";
@@ -208,15 +229,35 @@
             "<select size=\"1\" name=\"type[" + curFallNameIdteam2 + "]\" style=\"width:20%;\" id=\"team2fall"+ curFallNameIdteam2 +"\">" +
             options + "</select>" +
             "<select size=\"1\" name=\"type[" + curFallNameIdteam2 + "]\" style=\"width:20%;\" id=\"team2falltype"+ curFallNameIdteam2 +"\">" +
-            "<option value=\"text\">--тип удаления--</option>" + "</select>" +
+            "<option value=\"text\">ДИСЦ</option>" +
+            "<option value=\"text\">ПОДН</option>" +
+            "<option value=\"text\">ЗД-КЛ</option>" +
+            "<option value=\"text\">ВС-КЛ</option>" +
+            "<option value=\"text\">ПОДС</option>" +
+            "<option value=\"text\">КЛ-УД</option>" +
+            "<option value=\"text\">УД-КЛ</option>" +
+            "<option value=\"text\">АТ-СЗ</option>" +
+            "<option value=\"text\">УД-Н</option>" +
+            "<option value=\"text\">ГРУБ</option>" +
+            "<option value=\"text\">БОРТ</option>" +
+            "</select>" +
             "<select size=\"1\" name=\"type[" + curFallNameIdteam2 + "]\" style=\"width:20%;\" id=\"team2falldur"+ curFallNameIdteam2 +"\">" +
-            "<option value=\"text\">--длит-ть--</option>" + "</select>" +
+            "<option value=\"text\">2 МИН</option>" +
+            "<option value=\"text\">5 МИН</option>" +
+            "<option value=\"text\">10 МИН</option>" +
+            "<option value=\"text\">20 МИН</option>" +
+            "<option value=\"text\">2+2 МИН</option>" +
+            "<option value=\"text\">5+20 МИН</option>" +
+            "</select>" +
             "<div class=\"timeofgoal\" id=\"team2falltime"+ curFallNameIdteam2 +"\">"+min+":"+sec+"</div>"+
             "<a style=\"color:red;\" onclick=\"return deleteFallteam2(this)\" href=\"#\">[—]</a> " +
             "<a style=\"color:green;\" onclick=\"return addFallteam2()\" href=\"#\">[+]</a></nobr>";
 
         document.getElementById('fallsteam2').appendChild(div);
 
+        // let s1 = document.getElementById("s1").value;
+        // let s2 = document.getElementById("s2").value;
+        // AddStat(s1, s2);
         return false;
     }
 

@@ -44,10 +44,30 @@ class CommonController extends Controller
         $data = [
             'title' => $title
         ];
-        if (!isset($_SESSION['login'])) {
-            return parent::generateResponse('auth_view.php',
-                ['title'=>'Войти', 'warn'=>true]);
-        }
+        return parent::generateResponse($view, $data);
+    }
+
+    public function messageAction($request){
+        $postData = $request->post();
+        $view = 'messageaccept_view.php';
+        $title =  "Контакты";
+        $this->commonModel->sendMessage($postData);
+        $data = [
+            'title' => $title
+        ];
+//        if (!isset($_SESSION['login'])) {
+//            return parent::generateResponse('auth_view.php',
+//                ['title'=>'Войти', 'warn'=>true]);
+//        }
+        return parent::generateResponse($view, $data);
+    }
+
+    public function messagesAction(){
+        $view = 'messages_view.php';
+        $title =  "Сообщения";
+        $data = [
+            'title' => $title
+        ];
         return parent::generateResponse($view, $data);
     }
 

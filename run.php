@@ -6,7 +6,7 @@ $server = \Ratchet\Server\IoServer::factory(
         new Ratchet\WebSocket\WsServer(
             new \Anastasia\Project\Base\Socket()
         )
-    ), 8080
+    ), 8090
 );
 
 $server->run();

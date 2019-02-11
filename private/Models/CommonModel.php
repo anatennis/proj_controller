@@ -29,4 +29,21 @@ class CommonModel
         $players = $this->db->queryAll($sql);
         return $players;
     }
+
+    public function sendMessage($mes_data) {
+        $sql = "INSERT INTO Message (name, email, login, message, date)
+              VALUES (:name, :email, :login, :message, :date)";
+        $params = [
+            'name'=>$mes_data['name'],
+            'email'=>$mes_data['email'],
+            'login'=>$_SESSION['login'],
+            'message'=>$mes_data['message'],
+            'date'=>$mes_data['date']
+        ];
+        /*if($this->db->execute($sql, $params) === false) {
+            return self::DB_ERROR;
+        }*/
+        $answer = $this->db->execute($sql, $params);
+        return $answer;
+    }
 }

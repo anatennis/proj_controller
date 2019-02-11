@@ -1,5 +1,9 @@
 
-table {text-align: center; border-collapse: collapse; width: 100%; margin: 0 auto 1rem; border-radius: 10%; color: white}
+table {text-align: center; border-collapse: collapse; width: 100%; margin: 0 auto 1rem; border-radius: 10%; color: black;}
+
+#team2 {
+    text-transform: uppercase;
+}
 
 th, td { padding: 0.6rem; font-size: 15px; }
 
@@ -7,7 +11,7 @@ tr {background: hsl(50, 50%, 80%); }
 
 tr, td { transition: .1s ease-in; }
 
-tr:first-child {background: hsla(12, 100%, 40%, 0.5); }
+tr:first-child {background: #e6b333; }
 
 tr:nth-child(even) { background: hsla(50, 50%, 80%, 0.7); }
 

@@ -18,10 +18,10 @@
         <div class="hbackground h3back backlastgames">
             <h3 class="shl padding gamename">Матч <?php echo $team1['name'];?> -  <?php echo $team2['name'];?> </h3>
             <div class="clock">
-                <div id="minute">00</div>
-                <div id="second">03</div>
+                <div id="minute">0</div> :
+                <div id="second">00</div>
             </div>
-            <div class="startbut"><input type="button" value="Старт" id="startstop"></div>  <!--/*!!!!!!!!!!!!!!!!!!!!!!!*/-->
+            <div class="startbut"><input type="button" value="Старт" id="startstop"></div>
         </div>
 
         <div class="flex-1 row-container marginlarge">
@@ -30,7 +30,9 @@
                 <p class="teamname"> <?php echo $team1['name'];?> </p>
             </div>
             <div class="flex-1 btransparent res_common">
-                <div class="result"><div id="res1">0</div> : <div id="res2">0</div> </div> <!--/*!!!!!!!!!!!!!!!!!!!!!!!*/-->
+                <div class="result">
+                    <div id="res1" name="res1">0</div> : <div id="res2" name="res2">0</div>
+                </div>
                 <!--<p class="gamedate">12.02.18</p>-->
             </div>
             <div class="flex-1 btransparent">
@@ -83,7 +85,7 @@
             </div>
         </div>
         <div class="bottomborder">
-            <input type="submit" class="shl gamename colorfalls" style="margin-left: 40%" value="Фиксировать">
+            <input type="submit" class="shl gamename colorfalls" value="Фиксировать">
         </div>
         <div class="hbackground h3back backlastgames">
             <h3 class="shl padding gamename">Составы команд</h3>
@@ -136,31 +138,40 @@
                     <div class="ct-series-a ct-slice-donut" id="chart1" style="display: block"></div></div>
                 <div class="flex-1 statnames">
                     <p>Броски</p>
-                    <p><?php echo $team1['name'];?><input style="width: 30px" type="number" min="0" step="1" id="s1" value="0"></p>
-                    <p><?php echo $team2['name'];?><input style="width: 30px" type="number" min="0" step="1" id="s2" value="0"></p>
+                    <p><?php echo $team1['name'];?><input style="width: 50px; height: 30px"
+                                                          type="number" min="0" step="1" id="s1" value="0"></p>
+                    <p><?php echo $team2['name'];?><input style="width: 50px; height: 30px"
+                                                          type="number" min="0" step="1" id="s2" value="0"></p>
                 </div>
             </div>
-            <div id='refshots' class="flex-1 row-container stat">
+           <!-- <div id='refshots' class="flex-1 row-container stat">
                 <div class="flex-2">
                     <div class="ct-series-a ct-slice-donut" id="chart2" style="display: block"></div></div>
                 <div class="flex-1 statnames">
                     <p>Отраженные броски</p>
-                    <p><?php echo $team1['name'];?> <div id="sp1"></div> %</p>
-                    <p><?php echo $team2['name'];?> <div id="sp2"></div> %</p>
+                    <p><?php /*echo $team1['name'];*/?> <div id="sp1"></div> %</p>
+                    <p><?php /*echo $team2['name'];*/?> <div id="sp2"></div> %</p>
                 </div>
-            </div>
+            </div>-->
 
         </div>
     </div>
 
     </div>
 
-    <div><a href="/games"><input type="button" value="Назад"></a></div>
+    <?php if ($_SESSION['login'] == 'admin') { ?>
+        <div><a href="/games"><input type="button" value="Назад" id="senddata"></a></div>
+    <?php } ;?>
     <div style="display: none" id="t1"><?php echo $team1['id'];?></div>
     <div style="display: none" id="t2"><?php echo $team2['id'];?></div>
 </form>
+<!--<form method="post" action="/gamesaftrec" id="sendres">
+    <div id="res11" name="res1" >0</div> : <div id="res22" name="res2" >0</div>
+    <div id="gameid" style="display: none" name="id">$game_id</div>
+    <input type="submit" value="Record res">
+</form>-->
 
 
 <script src="/js/matchred.js"></script>
 <script src="/js/match.js"></script>
-<script src="js/match_socket.js"></script>
+<script src="/js/match_socket.js"></script>

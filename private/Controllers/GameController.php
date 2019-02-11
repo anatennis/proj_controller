@@ -36,12 +36,8 @@ class GameController extends Controller
             'team2'=>$team2,
             'players1'=>$players1,
             'players2'=>$players2,
-           /* 'team1goals'=>$team1goals,
-            'team2goals'=>$team2goals,
-            'team1falls'=>$team1falls,
-            'team2falls'=>$team2falls*/
-            /*'intnews'=>$intnews,
-            'locnews'=>$locnews*/
+            'game_id'=>$game_id
+
         ];
         /*parent::generateResponse($view, $data);*/
         if (!isset($_SESSION['login'])) {
@@ -60,9 +56,11 @@ class GameController extends Controller
         } else {
             $games = $this->gameModel->getGames();
         }
+        $teams = $this->gameModel->getTeams();
         $data = [
             'title'=>$title,
             'games'=>$games,
+            'teams'=>$teams
         ];
         if (!isset($_SESSION['login'])) {
             return parent::generateResponse('auth_view.php',
@@ -112,11 +110,34 @@ class GameController extends Controller
         return $response;
     }
 
+    public function RecResultAction($request) {
+        $postData = $request->post();
+        $title = 'Доступные игры';
+        $view = 'games_view.php';
+        $this->gameModel->addGameResult($postData);
+        if ($_SESSION['login']=='admin') {
+            $games = $this->gameModel->getGamesAdmin();
+        } else {
+            $games = $this->gameModel->getGames();
+        }
+        $data = [
+            'title'=>$title,
+            'games'=>$games
+        ];
+        /*parent::generateResponse($view, $data);*/
+        $response = parent::generateResponse($view, $data);
+        return $response;
+    }
+
     public function showExampleAction() {
         $title = 'Игра Пример';
         $view = 'game_view.php';
+        $players1 = $this->gameModel->getPlayers(1);
+        $players2 = $this->gameModel->getPlayers(2);
         $data = [
             'title'=>$title,
+            'players1'=>$players1,
+            'players2'=>$players2
         ];
         $response = parent::generateResponse($view, $data);
         return $response;
