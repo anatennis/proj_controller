@@ -31,9 +31,13 @@ class CommonController extends Controller
             'users' => $users,
             'games' => $games
         ];
-        if (!isset($_SESSION['login'])) {
-            return parent::generateResponse('auth_view.php',
-                ['title'=>'Войти', 'warn'=>true]);
+        if ($_SESSION['login'] !== 'admin') {
+            if (!isset($_SESSION['login'])) {
+                return parent::generateResponse('auth_view.php',
+                    ['title'=>'Войти', 'warn'=>true]);
+            }
+            return parent::generateResponse('contacts_view.php',
+                ['title'=>'Контакты']);
         }
         return parent::generateResponse($view, $data);
     }
@@ -65,9 +69,19 @@ class CommonController extends Controller
     public function messagesAction(){
         $view = 'messages_view.php';
         $title =  "Сообщения";
+        $messages = $this->commonModel->getMessages();
         $data = [
-            'title' => $title
+            'title' => $title,
+            'messages' => $messages
         ];
+        if ($_SESSION['login'] !== 'admin') {
+            if (!isset($_SESSION['login'])) {
+                return parent::generateResponse('auth_view.php',
+                    ['title'=>'Войти', 'warn'=>true]);
+            }
+            return parent::generateResponse('contacts_view.php',
+                ['title'=>'Контакты']);
+        }
         return parent::generateResponse($view, $data);
     }
 

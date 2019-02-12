@@ -156,33 +156,6 @@
             </div>
         </div>
         <div class="flex-1 row-container darkgrayback">
-            <div id="fminutes" class="flex-1 row-container stat">
-                <div class="flex-2">
-                    <div class="ct-series-a ct-slice-donut" id="chart3" style="display: block"></div></div>
-                <div class="flex-1 statnames">
-                    <p>Штрафные минуты</p>
-                    <p>Лисы 10</p>
-                    <p>Волки ЛТУ 2 12</p>
-                </div>
-            </div>
-            <div id='shots' class="flex-1 stat row-container padding">
-                <div class="flex-2">
-                    <div class="ct-series-a ct-slice-donut" id="chart1" style="display: block"></div></div>
-                <div class="flex-1 statnames">
-                    <p>Броски</p>
-                    <p>Лисы 34</p>
-                    <p>Волки 45</p>
-                </div>
-            </div>
-            <div id='refshots' class="flex-1 row-container stat">
-                <div class="flex-2">
-                    <div class="ct-series-a ct-slice-donut" id="chart2" style="display: block"></div></div>
-                <div class="flex-1 statnames">
-                    <p>Отраженные броски</p>
-                    <p>Лисы 92.4 %</p>
-                    <p>Волки 2 96.1 %</p>
-                </div>
-            </div>
 
 
         </div>

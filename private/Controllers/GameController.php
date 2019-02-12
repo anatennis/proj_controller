@@ -105,7 +105,6 @@ class GameController extends Controller
             return parent::generateResponse('auth_view.php',
                 ['title'=>'Войти', 'warn'=>true]);
         }
-        /*parent::generateResponse($view, $data);*/
         $response = parent::generateResponse($view, $data);
         return $response;
     }

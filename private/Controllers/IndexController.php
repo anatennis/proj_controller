@@ -24,8 +24,10 @@ class IndexController extends Controller
         $view = 'account_view.php';
         //$games = $this->indexModel->getGames();
         $data = [
-            'title'=>$title
+            'title'=>$title,
+            'reg'=>$_SESSION['reg']
         ];
+        $_SESSION['reg'] = false;
 
         if (!isset($_SESSION['login'])) {
             return parent::generateResponse('auth_view.php',

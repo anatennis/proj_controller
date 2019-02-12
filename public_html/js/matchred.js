@@ -65,8 +65,8 @@
         let res = document.getElementById('res1');
         res.innerHTML = countOfFieldsteam1;
 
-        let res1 = document.getElementById('res11');
-        res1.innerHTML = countOfFieldsteam1;
+        // let res1 = document.getElementById('res11');
+        // res1.innerHTML = countOfFieldsteam1;
 
         let min = document.getElementById("minute").innerHTML;
         let sec = document.getElementById("second").innerHTML;

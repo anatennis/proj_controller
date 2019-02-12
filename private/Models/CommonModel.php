@@ -30,6 +30,12 @@ class CommonModel
         return $players;
     }
 
+    public function getMessages() {
+        $sql = "SELECT * FROM Message";
+        $players = $this->db->queryAll($sql);
+        return $players;
+    }
+
     public function sendMessage($mes_data) {
         $sql = "INSERT INTO Message (name, email, login, message, date)
               VALUES (:name, :email, :login, :message, :date)";

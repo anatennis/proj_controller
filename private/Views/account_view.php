@@ -63,12 +63,9 @@
 
 
 <div class="main_img" >
-    <?php if ($reg_success) { ?>
-        <p class="reg_success">Пользователь успешно зарегистрирован! Через 5 секунд будет произведено перенаправление на главную страницу</p>
-        <script> window.setTimeout(function() { window.location = 'index'; }, 5000) </script>
-    <?php } ?>
-    <?php if ($user_exists) { ?>
-        <p class="reg_success">Пользователь с таким логином уже существует. Попробуйте еще раз.</p>
+    <?php if ($reg) { ?>
+        <p class="reg_success" style="text-align: center; text-transform: uppercase">
+            Пользователь с таким логином уже существует. Попробуйте еще раз.</p>
         <script> window.setTimeout(function() { window.location = 'index'; }, 5000) </script>
     <?php } ?>
 </div>

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/menu.css">
     <link rel="stylesheet" href="/css/match.css">
     <link rel="stylesheet" href="/css/matchred.css">
-    <!--<link rel="stylesheet" href="css/tourns.css">-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Marmelad" >
     <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script></head>
@@ -160,16 +159,21 @@
     </div>
 
     <?php if ($_SESSION['login'] == 'admin') { ?>
-        <div><a href="/games"><input type="button" value="Назад" id="senddata"></a></div>
-    <?php } ;?>
+        <div><a href="/games"><input type="button" value="Назад" id="senddata"
+                                     style="background: #e0a800"></a></div>
+    <?php } else { ?>
+        <div><a href="/games"><input type="button" value="Отправить в протокол" id="senddata"
+                                     style="background: #e0a800"></a></div>
+    <?php }  ;?>
+
     <div style="display: none" id="t1"><?php echo $team1['id'];?></div>
     <div style="display: none" id="t2"><?php echo $team2['id'];?></div>
 </form>
-<!--<form method="post" action="/gamesaftrec" id="sendres">
-    <div id="res11" name="res1" >0</div> : <div id="res22" name="res2" >0</div>
-    <div id="gameid" style="display: none" name="id">$game_id</div>
-    <input type="submit" value="Record res">
-</form>-->
+<!--<form method="post" action="/gamesaftrec" id="sendres">-->
+<!--    <div id="res11" name="res1" >0</div> : <div id="res22" name="res2" >0</div>-->
+<!--    <div id="gameid" style="display: none" name="id">$game_id</div>-->
+<!--    <input type="submit" value="Record res">-->
+<!--</form>-->
 
 
 <script src="/js/matchred.js"></script>

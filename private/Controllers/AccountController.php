@@ -61,6 +61,9 @@ class AccountController extends Controller
     public function registrationAction($request){
         $postData = $request->post(); // массив $_POST
         $answer = $this->accountModel->addUser($postData);
+        if ($answer=="USER_EXISTS") {
+            $_SESSION['reg'] = true;
+        }
         return parent::generateAjaxResponse($answer);
     }
 
